@@ -10,7 +10,7 @@ Exercicio 1 -
   Isso facilita muito o dia a dia das pessoas.  
   Um exemplo e uma lampada inteligente que pode ser ligada pelo celular  
 
-Exercicio 2 
+Exercicio 2 -
   Um sistema embarcado pode automatizar a iluminacao usando sensores e um microcontrolador.  
   Por exemplo um sensor de presenca detecta quando alguem entra no ambiente e acende a luz automaticamente.  
   Depois de um tempo sem movimento a luz apaga sozinha.  
@@ -24,14 +24,14 @@ Exercicio 3 -
   Isso mostra como o tempo muda diretamente o funcionamento do circuito.  
   Testar diferentes valores ajuda a entender qual a melhor para logica do programa  
 
-Exercicio 4
+Exercicio 4 -
   O uso de hardware open source tem como vantagem permitir que qualquer pessoa utilize modifique e aprenda com o projeto.  
   Isso facilita muito o aprendizado principalmente para iniciantes.  
   Alem disso existe bastante conteudo e ajuda disponivel na internet.  
   Por outro lado pode haver falta de suporte oficial e alguns projetos podem ter erros.  
   Mesmo assim e muito util para estudo e desenvolvimento  
 
-Exercicio 5
+Exercicio 5 -
   O microcontrolador e o principal componente de um sistema embarcado funcionando como o cerebro do sistema.  
   Ele recebe informacoes dos sensores e processa esses dados.  
   A partir disso toma decisoes e envia comandos para os atuadores.  
