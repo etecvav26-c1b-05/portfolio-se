@@ -1,0 +1,88 @@
+int valor = 0;
+
+// pinos dos LEDs
+int led1 = 9;
+int led2 = 10;
+int led3 = 11;
+int led4 = 12;
+int led5 = 13;
+
+// declarações das funções (IMPORTANTE)
+void desligarTodos();
+void efeitoSequencial();
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+}
+
+void loop()
+{
+  valor = analogRead(A0);
+
+  if (valor < 180)
+  {
+    desligarTodos();
+  }
+  else if (valor < 360)
+  {
+    desligarTodos();
+    digitalWrite(led1, HIGH);
+  }
+  else if (valor < 540)
+  {
+    desligarTodos();
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+  }
+  else if (valor < 720)
+  {
+    desligarTodos();
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+  }
+  else if (valor < 900)
+  {
+    desligarTodos();
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    digitalWrite(led4, HIGH);
+  }
+  else
+  {
+    efeitoSequencial();
+  }
+}
+
+// funções
+
+void desligarTodos()
+{
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+  digitalWrite(led4, LOW);
+  digitalWrite(led5, LOW);
+}
+
+void efeitoSequencial()
+{
+  digitalWrite(led1, HIGH); delay(150); digitalWrite(led1, LOW);
+  digitalWrite(led2, HIGH); delay(150); digitalWrite(led2, LOW);
+  digitalWrite(led3, HIGH); delay(150); digitalWrite(led3, LOW);
+  digitalWrite(led4, HIGH); delay(150); digitalWrite(led4, LOW);
+  digitalWrite(led5, HIGH); delay(150); digitalWrite(led5, LOW);
+
+  digitalWrite(led4, HIGH); delay(150); digitalWrite(led4, LOW);
+  digitalWrite(led3, HIGH); delay(150); digitalWrite(led3, LOW);
+  digitalWrite(led2, HIGH); delay(150); digitalWrite(led2, LOW);
+  digitalWrite(led1, HIGH); delay(150); digitalWrite(led1, LOW);
+}
