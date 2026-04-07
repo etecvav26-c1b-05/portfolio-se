@@ -1,0 +1,81 @@
+int valor = 0;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+}
+
+void loop()
+{
+  valor = analogRead(A0);
+
+  digitalWrite(13, LOW);
+  digitalWrite(12, LOW);
+  digitalWrite(11, LOW);
+  digitalWrite(10, LOW);
+  digitalWrite(9, LOW);
+
+  if (valor < 180)
+  {
+    
+  }
+  
+  else if (valor < 360)
+  {
+    digitalWrite(13, HIGH);
+  }
+  
+  else if (valor < 540)
+  {
+    digitalWrite(13, HIGH);
+    digitalWrite(12, HIGH);
+  }
+  
+  else if (valor < 720)
+  {
+    digitalWrite(13, HIGH);
+    digitalWrite(12, HIGH);
+    digitalWrite(11, HIGH);
+  }
+  
+  else if (valor < 900)
+  {
+    digitalWrite(13, HIGH);
+    digitalWrite(12, HIGH);
+    digitalWrite(11, HIGH);
+    digitalWrite(10, HIGH);
+  }
+  
+  else
+  {
+    digitalWrite(13, HIGH); delay(150);
+    digitalWrite(13, LOW);
+
+    digitalWrite(12, HIGH); delay(150);
+    digitalWrite(12, LOW);
+
+    digitalWrite(11, HIGH); delay(150);
+    digitalWrite(11, LOW);
+
+    digitalWrite(10, HIGH); delay(150);
+    digitalWrite(10, LOW);
+
+    digitalWrite(9, HIGH); delay(150);
+    digitalWrite(9, LOW);
+
+    digitalWrite(10, HIGH); delay(150);
+    digitalWrite(10, LOW);
+
+    digitalWrite(11, HIGH); delay(150);
+    digitalWrite(11, LOW);
+
+    digitalWrite(12, HIGH); delay(150);
+    digitalWrite(12, LOW);
+  }
+  
+}
