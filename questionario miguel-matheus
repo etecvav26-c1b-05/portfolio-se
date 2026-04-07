@@ -1,0 +1,29 @@
+Exercícios 1-5 Miguel Rossi
+Exercício 1 – A Internet das Coisas (IoT) acontece quando objetos do cotidiano
+se conectam à internet para trocar informações e agir de maneira mais eficiente.
+Isso possibilita que sejam controlados remotamente por meio de celulares ou computadores. 
+Além disso, esses dispositivos conseguem enviar e receber dados em tempo real,
+o que torna as tarefas do dia a dia mais práticas.
+Um exemplo disso é uma lâmpada inteligente que pode ser acionada pelo celular.
+
+Exercício 2 – Um sistema embarcado pode automatizar a iluminação com o uso de sensores e um microcontrolador.
+Por exemplo, um sensor de presença identifica quando alguém entra em um ambiente e acende a luz automaticamente.
+Após um período sem detectar movimento, a luz se apaga sozinha.
+Também é possível usar um sensor de luminosidade para que o sistema funcione apenas quando estiver escuro.
+Isso contribui para a economia de energia e aumenta a praticidade.
+ 
+Exercício 3 – No Tinkercad, o funcionamento do LED varia conforme o valor do delay definido no código.
+Quando o delay é baixo, o LED pisca rapidamente. Já com um valor maior, ele pisca mais devagar.
+ Isso demonstra como o tempo influencia diretamente o comportamento do circuito. 
+Testar diferentes valores ajuda a encontrar o mais adequado para a lógica do programa.
+
+Exercício 4 – O uso de hardware de código aberto tem como vantagem permitir que qualquer pessoa utilize,
+modifique e aprenda com os projetos. Isso facilita bastante o aprendizado, especialmente para iniciantes.
+Além disso, há muito conteúdo e suporte disponíveis na internet.
+Por outro lado, pode haver pouca assistência oficial e alguns projetos podem apresentar falhas.
+Ainda assim, é muito útil para estudo e desenvolvimento.
+
+Exercício 5 – O microcontrolador é o componente central de um sistema embarcado, funcionando como o “cérebro” do sistema.
+Ele recebe dados dos sensores, processa essas informações e, com base nisso, toma decisões e envia comandos para os atuadores.
+ Dessa forma, o sistema consegue operar automaticamente. Sem o microcontrolador, o funcionamento adequado do sistema não seria possível.
+
