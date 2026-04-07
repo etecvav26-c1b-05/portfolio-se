@@ -26,3 +26,25 @@ Ainda assim, é muito útil para estudo e desenvolvimento.
 Exercício 5 – O microcontrolador é o componente central de um sistema embarcado, funcionando como o “cérebro” do sistema.
 Ele recebe dados dos sensores, processa essas informações e, com base nisso, toma decisões e envia comandos para os atuadores.
  Dessa forma, o sistema consegue operar automaticamente. Sem o microcontrolador, o funcionamento adequado do sistema não seria possível.
+
+Exercícios 6-10 Matheus
+
+Exercício 6 – Um projeto simples seria um sistema de rega automática para plantas.
+A ideia é usar um sensor de umidade para ver se a terra está seca. Se estiver, o sistema liga uma bombinha de água para regar a planta.
+Quando a terra já estiver úmida o suficiente, ele desliga sozinho. Isso ajuda bastante quem esquece de regar ou não está sempre em casa.
+
+Exercício 7 – Ao colocar um botão no circuito, o LED passa a acender só quando a gente aperta esse botão.
+Quando o botão é pressionado, o circuito é fechado e o LED acende.
+Quando solta, ele apaga. Ou seja, o LED só fica ligado enquanto o botão estiver sendo pressionado.
+
+Exercício 8 – O movimento maker ajuda muito no aprendizado porque a gente aprende fazendo na prática. Em vez de só ficar na teoria,
+a pessoa monta projetos, testa ideias e entende melhor como as coisas funcionam.
+Isso também ajuda a desenvolver criatividade e a resolver problemas de forma mais independente. 
+
+Exercício 9 – Em um sistema de irrigação automática, os sensores verificam como está o ambiente, por exemplo, se o solo está seco.
+Aí o microcontrolador analisa essa informação e, se precisar, manda um comando para o atuador, como uma bomba de água, que faz a irrigação.
+Assim, tudo funciona de forma automática e eficiente.
+
+Exercício 10 – Quando a gente pega um projeto pronto no Wokwi ou Tinkercad e muda alguma coisa, como o tempo de um LED, dá para ver
+claramente a diferença. Por exemplo, se aumentar o tempo, o LED pisca mais devagar; se diminuir, pisca mais rápido. Isso ajuda a 
+entender melhor como pequenas mudanças no código afetam o funcionamento do circuito.
