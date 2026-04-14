@@ -3,7 +3,7 @@ exercicios 1-5 Marcos Gomes
 
 --Sistemas Embarcados--
 
-Exercicio 1 - 
+# *Exercicio 1*  
   IoT e quando objetos do dia a dia se conectam a internet para trocar informacoes e funcionar de forma mais inteligente.  
   Isso permite que eles sejam controlados a distancia pelo celular ou computador.  
   Alem disso esses dispositivos conseguem enviar e receber dados em tempo real.  
