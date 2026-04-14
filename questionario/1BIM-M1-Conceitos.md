@@ -1,5 +1,5 @@
 exercicios 1-5 Marcos Gomes
-
+exercicios 6-10 Henzo Souza
 
 --Sistemas Embarcados--
 
@@ -33,8 +33,39 @@ exercicios 1-5 Marcos Gomes
 
 # *Exercicio 5*  
   O microcontrolador e o principal componente de um sistema embarcado funcionando como o cerebro do sistema.  
+
+
+# *Exercicio 6*  
+
+Um sistema embarcado pode ser utilizado para criar uma lixeira inteligente que abre automaticamente quando alguém se aproxima. Utilizando um sensor de distância (ultrassônico),
+o sistema detecta a presença de uma pessoa e aciona um servo motor para abrir a tampa. Após alguns segundos, a tampa se fecha sozinha. Esse projeto ajuda a manter a higiene e facilita o uso no dia a dia.
   Ele recebe informacoes dos sensores e processa esses dados.  
   A partir disso toma decisoes e envia comandos para os atuadores.  
   Isso permite que o sistema funcione de forma automatica.  
   Sem o microcontrolador o sistema nao conseguiria operar corretamente  
+
+
+# *Exercicio 7*  
+
+No simulador, ao adicionar um botão ao circuito do LED, o comportamento passa a depender da interação do usuário. Quando o botão não está pressionado,
+o circuito permanece aberto e o LED fica apagado. Ao pressionar o botão, o circuito se fecha, permitindo a passagem de corrente elétrica e fazendo com que o LED acenda.
+No código, isso é feito verificando o estado do botão e acionando o LED apenas quando ele estiver pressionado.
+
+# *Exercicio 8*  
+
+O movimento maker contribui para o aprendizado em tecnologia ao incentivar a prática e a experimentação. Em vez de apenas estudar teoria, 
+os alunos constroem projetos reais, o que facilita a compreensão dos conceitos. Além disso, promove criatividade, autonomia e a capacidade de resolver problemas,
+tornando o aprendizado mais dinâmico e significativo.
+
+# *Exercicio 9*  
+
+Em um sistema de irrigação automatizado, sensores e atuadores trabalham de forma integrada. Um sensor de umidade do solo verifica se a terra está seca ou úmida.
+Quando o sistema detecta que o solo está seco, ele envia um sinal para o atuador, que pode ser uma bomba de água, acionando a irrigação. Quando o nível de umidade é suficiente,
+o sistema desliga a bomba. Isso garante o uso eficiente da água e o cuidado adequado com as plantas.
+
+# *Exercicio 10*  
+
+Ao explorar um projeto no Tinkercad ou Wokwi, é possível modificar parâmetros para observar mudanças no comportamento do circuito.
+Por exemplo, ao alterar o valor do delay em um código de LED piscante, o tempo entre ligar e desligar muda. Com um valor menor, o LED pisca mais rápido; com um valor maior, ele pisca mais devagar.
+Essa modificação ajuda a entender como o tempo influencia diretamente a execução do programa e o funcionamento do sistema.
   
