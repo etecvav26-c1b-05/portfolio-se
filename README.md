@@ -16,13 +16,10 @@ Desenvolvimento de projetos envolvendo hardware, software, automação e Interne
 ---
 
 ## 👨‍💻 Equipe
-
-| Integrante | Função |
-|------------|---------|
-| Marcos Gomes | Desenvolvimento e Documentação |
-| Matheus Felipe | Programação |
-| Miguel de Rossi | Hardware e Testes |
-| Henzo Souza | Pesquisa e Desenvolvimento |
+- Marcos Gomes
+- Matheus Felipe
+- Miguel de Rossi
+- Henzo Souza
 
 ---
 
