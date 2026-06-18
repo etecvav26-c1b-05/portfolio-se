@@ -52,13 +52,3 @@ Aqui documentamos nossa evolução na criação de sistemas capazes de interagir
 - Trabalhar em equipe para resolver problemas reais.
 
 ---
-
-## 📂 Estrutura do Projeto
-
-```text
-📦 Sistemas-Embarcados
- ┣ 📂 Exercicios
- ┣ 📂 Projetos
- ┣ 📂 Simulacoes
- ┣ 📂 Documentacao
- ┗ 📜 README.md
