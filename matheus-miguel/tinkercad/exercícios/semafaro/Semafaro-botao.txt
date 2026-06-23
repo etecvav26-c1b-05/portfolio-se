@@ -1,0 +1,81 @@
+int vermelho1 = 13;
+int vermelho2 = 6;
+int amarelo1 = 12;
+int verde1 = 11;
+int amarelo2 = 7;
+int verde2 = 8;
+int pedestreVerde = 9;
+int pedestreVermelho = 10;
+int btn = 4;
+int botaoP = 0;
+void setup() {
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(btn, INPUT_PULLUP);
+}
+void pedestre();
+void loop() {
+  digitalWrite(vermelho2, LOW);
+  botaoP = 0;
+  digitalWrite(pedestreVermelho, HIGH);
+  digitalWrite(vermelho1, HIGH);
+  digitalWrite(verde2, HIGH);
+  if(digitalRead(4) == HIGH){ botaoP = 1; }
+  delay(4000);
+  digitalWrite(verde2, LOW);
+  digitalWrite(amarelo2, HIGH);
+  if(digitalRead(4) == HIGH){ botaoP = 1; }
+  delay(2000);
+  if(digitalRead(4) == HIGH){ botaoP = 1; }
+  digitalWrite(amarelo2, LOW);
+  digitalWrite(vermelho2, HIGH);
+  if (botaoP == 1){
+    digitalWrite(pedestreVermelho, LOW);
+    digitalWrite(pedestreVerde, HIGH);
+    pedestre();
+    delay(2000);
+  }
+  digitalWrite(vermelho1, LOW);
+  digitalWrite(verde1, HIGH);
+  if(digitalRead(4) == HIGH){ botaoP = 1; }
+  delay(5000);
+  if(digitalRead(4) == HIGH){ botaoP = 1; }
+  digitalWrite(verde1, LOW);
+  digitalWrite(amarelo1, HIGH);
+  if(digitalRead(4) == HIGH){ botaoP = 1; }
+  delay(2000);
+  if(digitalRead(4) == HIGH){ botaoP = 1; }
+  digitalWrite(amarelo1, LOW);
+  digitalWrite(vermelho2, LOW);
+  if (botaoP == 1){
+    digitalWrite(pedestreVermelho, LOW);
+    digitalWrite(pedestreVerde, HIGH);
+    pedestre();
+    delay(2000);
+  }
+}
+void pedestre(){
+  digitalWrite(vermelho2, HIGH);
+  digitalWrite(vermelho1, HIGH);
+  digitalWrite(verde1, LOW);
+  digitalWrite(verde2, LOW);
+  delay(5000);
+  digitalWrite(pedestreVerde, LOW);
+  digitalWrite(pedestreVermelho, HIGH);
+  digitalWrite(9, LOW);
+  digitalWrite(pedestreVermelho, HIGH);
+  delay(500);
+  digitalWrite(pedestreVermelho, LOW);
+  delay(500);
+  digitalWrite(pedestreVermelho, HIGH);
+  delay(500);
+  digitalWrite(pedestreVermelho, LOW);
+  delay(500);
+  digitalWrite(pedestreVermelho, HIGH);
+}
