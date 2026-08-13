@@ -20,6 +20,7 @@ Desenvolvimento de projetos envolvendo hardware, software, automação e Interne
 - Matheus Felipe
 - Miguel de Rossi
 - Henzo Souza
+- Samuel Kimura
 
 ---
 
