@@ -1,0 +1,40 @@
+
+int verde = 8;
+int amarelo = 9;
+int vermelho = 10;
+
+int sensor = A0;
+int umidade = 0;
+
+void setup()
+{
+  pinMode(verde, OUTPUT);
+  pinMode(amarelo, OUTPUT);
+  pinMode(vermelho, OUTPUT);
+}
+
+void loop()
+{
+  umidade = analogRead(sensor);
+
+  if (umidade < 400)
+  {
+    digitalWrite(verde, LOW);
+    digitalWrite(amarelo, LOW);
+    digitalWrite(vermelho, HIGH);
+  }
+  else if (umidade < 700)
+  {
+    digitalWrite(verde, LOW);
+    digitalWrite(amarelo, HIGH);
+    digitalWrite(vermelho, LOW);
+  }
+  else
+  {
+    digitalWrite(verde, HIGH);
+    digitalWrite(amarelo, LOW);
+    digitalWrite(vermelho, LOW);
+  }
+
+  delay(1000);
+}
