@@ -1,0 +1,190 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C *lcd;
+
+// codigo sensor ultrassonico (pinos do trig e echo)
+const int trigPin = 9;
+const int echoPin = 10;
+
+// codigo leds (pinos dos leds vermelho, amarelo, azul e verde)
+const int ledVermelho = 2;
+const int ledAmarelo  = 3;
+const int ledAzul     = 4;
+const int ledVerde    = 5;
+
+// codigo buzzer (pino do alarme sonoro)
+const int buzzer = 6;
+
+// codigo variaveis da caixa d'agua (altura e capacidade)
+const float alturaCaixa = 100.0;       
+const float capacidadeLitros = 1000.0; 
+
+const int NIVEL_LIGADO    = HIGH;
+const int NIVEL_DESLIGADO = LOW;
+
+void ligaLed(int pino)    { digitalWrite(pino, NIVEL_LIGADO); }
+void desligaLed(int pino) { digitalWrite(pino, NIVEL_DESLIGADO); }
+
+void apagarLeds() {
+  desligaLed(ledVermelho);
+  desligaLed(ledAmarelo);
+  desligaLed(ledAzul);
+  desligaLed(ledVerde);
+}
+
+// codigo display (procura o endereço I2C do LCD)
+byte acharEnderecoLCD() {
+  byte candidatos[] = {0x20, 0x27, 0x3F, 0x21, 0x22, 0x23, 0x38};
+  for (int i = 0; i < 7; i++) {
+    Wire.beginTransmission(candidatos[i]);
+    if (Wire.endTransmission() == 0) {
+      return candidatos[i];
+    }
+  }
+  return 0x27; 
+}
+
+// codigo sensor ultrassonico (leitura da distância em cm)
+float lerDistancia() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  long duracao = pulseIn(echoPin, HIGH, 30000);
+  if (duracao == 0) return -1;
+
+  return duracao * 0.0343 / 2.0;
+}
+
+// codigo sensor ultrassonico (média de leituras para estabilizar)
+float lerDistanciaMedia() {
+  float soma = 0;
+  int validas = 0;
+
+  for (int i = 0; i < 3; i++) {
+    float d = lerDistancia();
+    if (d > 0) {
+      soma += d;
+      validas++;
+    }
+    delay(30);
+  }
+
+  if (validas == 0) return -1;
+  return soma / validas;
+}
+
+void setup() {
+  // codigo leds (configuração das portas dos LEDs como saída)
+  pinMode(ledVermelho, OUTPUT);
+  pinMode(ledAmarelo, OUTPUT);
+  pinMode(ledAzul, OUTPUT);
+  pinMode(ledVerde, OUTPUT);
+  apagarLeds();
+
+  // codigo sensor ultrassonico e buzzer (configuração de pinos)
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(buzzer, OUTPUT);
+  digitalWrite(buzzer, LOW);
+
+  Serial.begin(9600);
+
+  // codigo display (inicialização do LCD I2C)
+  Wire.begin();
+  byte endereco = acharEnderecoLCD();
+  Serial.print("LCD no endereco 0x");
+  Serial.println(endereco, HEX);
+
+  lcd = new LiquidCrystal_I2C(endereco, 16, 2);
+  lcd->init();
+  lcd->backlight();
+
+  lcd->setCursor(0, 0);
+  lcd->print("Monitor de Agua");
+  lcd->setCursor(0, 1);
+  lcd->print("Testando LEDs...");
+
+  // codigo leds (teste sequencial dos LEDs na inicialização)
+  int leds[4] = {ledVermelho, ledAmarelo, ledAzul, ledVerde};
+  for (int i = 0; i < 4; i++) {
+    ligaLed(leds[i]);
+    delay(400);
+    desligaLed(leds[i]);
+  }
+
+  lcd->clear();
+}
+
+void loop() {
+  // codigo sensor ultrassonico (obtém a distância média atual)
+  float distancia = lerDistanciaMedia();
+
+  // codigo display e sensor (tratamento de erro se o sensor falhar)
+  if (distancia < 0) {
+    apagarLeds();
+    noTone(buzzer);
+
+    lcd->setCursor(0, 0);
+    lcd->print("Erro no sensor  ");
+    lcd->setCursor(0, 1);
+    lcd->print("Verifique sensor");
+
+    Serial.println("Erro na leitura do sensor");
+    delay(500);
+    return;
+  }
+
+  // codigo calculo do nivel (converte distância em porcentagem e litros)
+  float nivel = (alturaCaixa - distancia) / alturaCaixa * 100.0;
+  nivel = constrain(nivel, 0, 100);
+
+  int litros = round(capacidadeLitros * nivel / 100.0);
+
+  // codigo leds (seleciona qual LED acender conforme a porcentagem)
+  int ledAtivo;
+  if (nivel < 25) {
+    ledAtivo = ledVermelho;
+  } else if (nivel < 50) {
+    ledAtivo = ledAmarelo;
+  } else if (nivel < 75) {
+    ledAtivo = ledAzul;
+  } else {
+    ledAtivo = ledVerde;
+  }
+
+  apagarLeds();
+  ligaLed(ledAtivo);
+
+  // codigo buzzer (dispara o alarme sonoro se o nível estiver abaixo de 15%)
+  if (nivel < 15) {
+    tone(buzzer, 1000);
+  } else {
+    noTone(buzzer);
+  }
+
+  // codigo display (atualiza as informações de nível e volume na tela)
+  lcd->setCursor(0, 0);
+  lcd->print("Nivel: ");
+  lcd->print((int)nivel);
+  lcd->print("%        ");
+
+  lcd->setCursor(0, 1);
+  lcd->print("Agua: ");
+  lcd->print(litros);
+  lcd->print(" L      ");
+
+  // codigo monitor serial (envia os dados para o computador)
+  Serial.print("Distancia: ");
+  Serial.print(distancia);
+  Serial.print(" cm | Nivel: ");
+  Serial.print(nivel);
+  Serial.print("% | Agua: ");
+  Serial.print(litros);
+  Serial.println(" litros");
+
+  delay(300);
+}
